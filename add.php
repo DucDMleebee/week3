@@ -129,4 +129,4 @@ function test_input($data) {
 <input type="button" onclick="location.href='index.php';" value="Trang chu" />
 </form>
 </body>
-</html> #antoine
+</html>
