@@ -1,5 +1,5 @@
 <?php
-include '../challenge.php';
+include '../creategm.php';
 // This is the directory where images will be saved
 $target_dir = "baitap/";
 $target_file = $target_dir . basename( $_FILES["filesToUpload"]["name"]);
