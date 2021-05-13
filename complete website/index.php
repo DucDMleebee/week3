@@ -22,7 +22,7 @@ else{
     <a href='signout.php'><button type="button" class="btn btn-secondary btn-lg btn-block btn-dark">Sign out</button>
     <script> 
     function game() {
-        var page = "<?php if($_SESSION['teacher']) echo $create; else if($_SESSION['student']) echo $play; else echo '#'; ?>";
+        var page = "<?php if($_SESSION['teacher']) echo $create; else if($_SESSION['student']) echo $play; else echo '#'; ?>";  // nếu là giáo viên thì redirect sang creategm.php, nếu là student thì sang playgm.php, nếu ko thì #.
         document.querySelector("#game").href = page;    
     } 
     </script>
