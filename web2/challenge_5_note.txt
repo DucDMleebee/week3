@@ -1,0 +1,17 @@
+login.php:
+- form login gom username, password.
+- user duoc authenticate (co role la student va teacher) -> locate to index.php.
+- button "List of students" o tren navbar ben goc phai ben tren -> cho phep nguoi dung thu 3 vao list.php.
+index.php:
+- xem danh sach lop -> danh sach -> thong tin tung nguoi:
++ Giao vien: edit box o tung info field. (CRUD all)
++ Hoc sinh: text box o tung info field. (CRUD apart from username and password)
+- giao bai, tra bai.
+- tro choi.
+click vao tung hoc sinh 1 trong danh sach list.php -> details.php:
+- Giao vien: co text box de chinh sua cac muc username, password, email, so dien thoai, ho ten.
+- Sinh vien: co text box de chinh sua cac muc email, so dien thoai, ho ten.
+- Nguoi dung thu 3: khong co text box, chi read-only, dong thoi co button dan den message.php nam o ben phai ben tren (navbar).
+creategm.php: chi danh cho giao vien dung de insert file txt len.
+playgm.php: chi danh cho sinh vien de submit dap an va doc hint. Neu dung thi tra ve noi dung cua file txt
+
