@@ -1,6 +1,6 @@
 <?php
    session_start();
-   if (!$_SESSION['teacher'] || !$_SESSION['student'])
+   if (!isset($_SESSION['teacher']) || !isset($_SESSION['student']))
    {
       header('Location: list.php');  
    } else{
