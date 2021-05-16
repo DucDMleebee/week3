@@ -26,28 +26,35 @@
 		<h2>Add a student</h2>
       <div class="form-group">
          <input type="text" class="form-control" name="username" placeholder="Username" required="required">
-		</div>   
+		</div>  
+        <p style="color: red"><?php if(isset($_GET['username']) && $_GET['username']=="error") echo "Username must have lowercase characters (a-z) or numbers (0-9) or underscores(_), no special characters and length from 5 to 30!";?></p>  
+        <p style="color: red"><?php if(isset($_GET['status']) && $_GET['status']=="failed") echo "This username has already been existed!";?></p>
       <div class="form-group">
          <input type="text" class="form-control" name="fullname" placeholder="Full name" required="required">
-		</div>      	
+		</div>      
+        <p style="color: red"><?php if(isset($_GET['fullname']) && $_GET['fullname']=="error") echo "Full name must have characters (a-z or A-Z), start with uppercase and length from 5 to 30!";?></p> 	
       <div class="form-group">
         	<input type="email" class="form-control" name="email" placeholder="Email" required="required">
       </div>
+        <p style="color: red"><?php if(isset($_GET['email']) && $_GET['email']=="error") echo "Wrong email format!";?></p> 
       <div class="form-group">
          <input type="text" class="form-control" name="phonenum" placeholder="Phone Number" required="required">
 		</div>
+        <p style="color: red"><?php if(isset($_GET['phone']) && $_GET['phone']=="error") echo "Wrong phone number format (exactly 10 numbers)!";?></p> 
 		<div class="form-group">
             <input type="password" class="form-control" name="pass" placeholder="Password" required="required">
         </div>
+        <p style="color: red"><?php if(isset($_GET['password']) && $_GET['password']=="error") echo "Password must have characters (a-z) or numbers (0-9) or underscores(_), length under 30!";?></p> 
 		<div class="form-group">
             <input type="password" class="form-control" name="cpass" placeholder="Confirm Password" required="required">
         </div>
-        <p style="color: red"> <?php if(isset($_GET[status]) && $_GET[status]=="false") echo "Wrong password confirmed!"; ?> </p>       
+        <p style="color: red"><?php if(isset($_GET['confirm']) && $_GET['confirm']=="error") echo "Wrong confirmed password";?></p>       
 		<div class="form-group">
             <button type="submit" name="save" class="btn btn-success btn-lg btn-block">Add now</button>
         </div>
     </form>
-	
+	 <p style="color: green"><?php if(isset($_GET['status']) && $_GET['status']=="success") { $comeback='<a href="index.php"><button type="button" class="btn btn-secondary">Come back to home page</button></a>'; echo "Adding successfully!"; } ?></p>
+    <?php echo $comeback; ?>
 </div>
 </body>
 </html>
