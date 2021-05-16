@@ -29,6 +29,7 @@
     <br/>
        <table>
            <tr>
+               <th>ID</th>
                <th>Fullname</th>
                <th>Email</th>
                <th>Phone number</th>
@@ -41,11 +42,11 @@
                 if ($con3->connect_error) {
                   die("Connection failed: " . $con3->connect_error);
                 }
-                $sql = "SELECT fullname, email, phonenum FROM student";
+                $sql = "SELECT id, fullname, email, phonenum FROM student";
                 $result = $con3->query($sql);
                 if($result->num_rows > 0){
                     while($row = $result->fetch_assoc()){
-                        echo '<tr><td onclick="load_ajax(this)">'.$row["fullname"]."</td><td>".$row["email"]."</td><td>".$row["phonenum"]."</td></tr>";
+                        echo '<tr><td onclick="load_ajax(this)">'.$row["id"]."</td><td>".$row["fullname"]."</td><td>".$row["email"]."</td><td>".$row["phonenum"]."</td></tr>";
                     }
                 } else{
                     $msg = "This class is empty now!";
