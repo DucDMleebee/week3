@@ -4,7 +4,7 @@
 $servername = "localhost";
 $username = "kali";
 $password = "kali";
-$dbname = "class";
+$dbname = "game";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -34,10 +34,15 @@ $answer = $_POST["answer"];
 		if ($answer == "") {
 			echo "Answer is empty!";
 		}else{
-			$myfile = fopen("challenge/$answer.txt", "r") or die("<br>Wrong answer");
+			$myfile = fopen("challenge/$answer.txt", "r");
+			if($myfile){
 			echo "<br>Correct<br>";
 			echo fread($myfile,filesize("challenge/$answer.txt"));
 			fclose($myfile);
+			}
+			else{
+			echo "<br>Incorrect";
+			}
 		}
 }
 ?>
