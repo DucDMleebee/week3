@@ -38,17 +38,17 @@
             session_start();
             // Nhập giá trị number bằng phương thức post
             $data = isset($_POST['td_data']) ? $_POST['td_data'] : '';
-            $_SESSION['name'] = $data;
+            $_SESSION['id'] = $data;
             // echo $data;
             $con4 = new mysqli("localhost","kali","kali","class");
             if ($con4->connect_error) {
                 die("Connection failed: " . $con4->connect_error);
             }
-            $sql = "SELECT fullname, email, phonenum FROM student WHERE fullname='$data'";
+            $sql = "SELECT fullname, email, phonenum FROM student WHERE id='$data'";
             $result = $con4->query($sql);
             if($result->num_rows > 0){
-            while($rows = $result->fetch_assoc()){
-                echo '<tr><td onclick="load_ajax(this)">'.$rows["fullname"]."</td><td>".$rows["email"]."</td><td>".$rows["phonenum"]."</td></tr>";
+              while($rows = $result->fetch_assoc()){
+                echo "<tr><td>".$rows["fullname"]."</td><td>".$rows["email"]."</td><td>".$rows["phonenum"]."</td></tr>";
                 }
             } 
             else{
@@ -57,6 +57,6 @@
             ?>
 </table>
 <br/>
-<button type="button" class="btn btn-primary btn-lg" onclick='window.location.href="sendmess.php"'>Chat with <?php echo $_SESSION['name'] ?></button>
+<button type="button" class="btn btn-primary btn-lg" onclick='window.location.href="sendmess.php"'>Chat with this student</button>
 </body>
 </html>
