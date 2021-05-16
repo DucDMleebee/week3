@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html>
 <body>
-
-<form action="uploadchallenge.php" method="post" enctype="multipart/form-data">
-  Chon file de tao challenge:
-  <input type="file" name="fileToUpload" id="fileToUpload">
-  <input type="submit" value="Upload File" name="submit">
-</form>
 <?php
 $hintErr = "";
 $hint = "";
@@ -29,12 +23,21 @@ function test_input($data) {
   return $data;
 }
 ?>
-<p><span class="error">* khong duoc de trong</span></p>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
-  Hints: <input type="text" name="hint" value="">
-  <span class="error">* <?php echo $hintErr;?></span>
-  <br><br>
-  <input type="submit" name="hintsubmit" value="Submit">
-</form>
-</body>
+  <form method="post" action="uploadchallenge.php" enctype="multipart/form-data">
+    <p>
+              Please Enter the Challenge Details.
+            </p>
+            <p>
+              Hints:
+            </p>
+            <input type="text" name="hints"/>
+            <p>
+              Please Upload text file</p>
+            <p>
+              File:
+            </p>
+            <input type="hidden" name="size" value="350000">
+            <input type="file" name="filesToUpload" id="filesToUpload"> 
+            <input TYPE="submit" name="submit" title="Add data to the Database" value="Add Challenge"/>
+          </form></body>
 </html>
