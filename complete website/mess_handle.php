@@ -14,7 +14,31 @@ else{
     if ($con9->connect_error) {
         die("Connection failed: " . $con9->connect_error);
     }
-    
+    $id = 1;
+    $x = 0;
+    $arr = array();
+    $stmt = $con8->prepare("SELECT * FROM student WHERE id=?");
+    $stmt->bind_param("s", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    while ($row = $result->fetch_array(MYSQLI_NUM))
+    {
+        foreach ($row as $r)
+        {
+            $arr[$x] = "$r";
+            $x++;
+        }
+    }
+    $sender = $_SESSION['user'];
+    $content = $_POST['message'];
+    // echo $sender." and ".$content." to ".$arr[1];
+  
+    $sql = "INSERT INTO ".$arr[1]." (sender,content) VALUES ('$sender','$content')";
+    echo $sql;
+    if($con9->query($sql)){
+        header('Location: sendmess.php?status=success');
+    } else{
+        header('Location: sendmess.php?status=failed');
+    }
 }
-
 ?>
